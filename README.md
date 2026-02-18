@@ -1,0 +1,2 @@
+# MATLAB-analysis-on-Multi-Spring-Mass-Static-Equilibrium
+This project simulates a multi degree of freedom spring–mass system with viscous damping and Coulomb friction using MATLAB.N masses are connected by linear springs, with boundary springs attached to rigid walls.The governing equation is: Mẍ+Cẋ+Kx+F_fric=F Time stepping computes displacement, velocity &amp; steady state response under applied loading.
