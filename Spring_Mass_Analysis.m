@@ -1,5 +1,6 @@
 % Multi Spring Mass Static Equilibrium
-% Form stiffness matrix for 5 to 10 mass spring chain and compute displacement under applied loads using linear system solvers.
+% Form stiffness matrix for 5 to 10 mass spring chain and compute displacement under 
+% applied loads using linear system solvers.
 
 clc;
 clear;
@@ -68,12 +69,12 @@ for step = 1:max_steps-1
     
     t(step+1) = t(step) + dt;
     
-    F_fric = mu * m * g .* sign(v(:,step));
+    F_fric = mu * m * g .* tanh(100 * v(:,step));
     
     a(:,step) = M \ (F - C*v(:,step) - K*x(:,step) - F_fric);
     
     v(:,step+1) = v(:,step) + dt*a(:,step);
-    x(:,step+1) = x(:,step) + dt*v(:,step);
+    x(:,step+1) = x(:,step) + dt*v(:,step+1);
     
     if max(abs(v(:,step+1))) < tolerance && ...
        max(abs(a(:,step))) < tolerance
